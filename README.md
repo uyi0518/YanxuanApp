@@ -3,7 +3,6 @@
 ## Screenshot
 
 
-![index](Screenshot/2.png)
-![index](http://github.com/uyi0518/YanxuanApp/raw/master/Screenshot/2.png)
-![category](http://github.com/uyi0518/YanxuanApp/raw/master/Screenshot/3.png)
+![index](Screenshot/2.png){:height="50%" width="50%"}
+![category](Screenshot/3.png){:height="50%" width="50%"}
 
