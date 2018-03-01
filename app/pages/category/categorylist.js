@@ -12,6 +12,7 @@ import {
     FlatList,
     Animated,
 } from 'react-native';
+import ContentView from './categorycontent'
 
 class CategoryList extends React.Component {
     constructor(props) {
@@ -125,7 +126,9 @@ class CategoryList extends React.Component {
                     ref={(ref) => this._listRef = ref }
                     />
             </View>
-            <View style={[styles.content]}></View>
+            <View style={[styles.content]}>
+               <ContentView/>
+            </View>
         </View>
     }
 }
@@ -151,7 +154,8 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor:'red'
+        backgroundColor:'#fff',
+        padding:20
     }
 });
 

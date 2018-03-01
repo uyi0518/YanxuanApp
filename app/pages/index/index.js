@@ -24,9 +24,7 @@ class Index extends React.Component {
         header: null
     }
     
-    componentDidUpdate(){
-        Alert.alert("yes")
-    }
+  
     render() {
         return <View style={[styles.container]}>
             <IndexHeader {...this.props} />

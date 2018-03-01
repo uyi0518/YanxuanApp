@@ -5,7 +5,8 @@ import {
     Button,
     Platform,
     TextInput,
-    StyleSheet
+    StyleSheet,
+    Alert
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -25,7 +26,7 @@ class Cart extends React.Component {
             color: tintColor
         }}/>)
     }
-
+   
     render(){
         return <View style={[styles.container]}>
             <Text>index</Text>

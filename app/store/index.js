@@ -3,12 +3,12 @@ import { observable, computed, action } from "mobx";
 
 
 export default class TodoListModel {
-  @observable  islogin=true
+  @observable  islogin=false
 
  
 
   @action
   login() {
-    this.islogin=false
+    this.islogin=true
   }
 }

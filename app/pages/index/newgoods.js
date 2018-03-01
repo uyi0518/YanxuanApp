@@ -13,7 +13,7 @@ const GoodsDisplay = ({goods}) => (
         <View style={[styles.items]}>
             
            {goods.data.map((item)=>
-                <View style={[styles.item]} key={item.content}>
+                <View style={[styles.item]} key={item.price}>
                 <Image source={{uri:item.uri}} style={{width:imagewidth,height:imagewidth}}/>
                 <View style={[styles.activity]}>
                     {item.activity.length !== 0 && item.activity.map((acitem)=>

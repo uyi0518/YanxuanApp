@@ -10,7 +10,7 @@ import {
     TouchableWithoutFeedback
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import LoginView from '../common/login'
+
 import {inject, observer} from 'mobx-react'
 
 @inject('rootstore')
@@ -36,11 +36,14 @@ class Personal extends React.Component {
         }}/>),
         tabBarOnPress: ({previousScene,scene,jumpToIndex}) => {
            
-            navigation.state.params._onpress()
-            jumpToIndex(scene.index)
+            navigation.state.params._onpress(jumpToIndex,scene)
+            
             
        },
     })
+    componentDidUpdate(){
+        
+    }
     componentDidMount() {
         this
             .props
@@ -48,19 +51,18 @@ class Personal extends React.Component {
             .setParams({_onpress: this._onpress})
     }
     
-    _onpress = () => {
-        
-        this.setState({show: this.props.rootstore.islogin})
+    _onpress = (jumpToIndex,scene) => {
+        if(!this.props.rootstore.islogin){
+            this.props.navigation.navigate("login")
+        }else{
+            jumpToIndex(scene.index)
+        }
+       
     }
-    _active = () => {
-        
-        this.props.rootstore.login()
-        this.setState({show: this.props.rootstore.islogin})
-        this.props.navigation.navigate('recommend')
-    }
+    
     render() {
         return <View style={[styles.container]}>
-            {this.state.show && <LoginView _onpress={this._active} {...this.props}></LoginView>}
+            
         </View>
     }
 }

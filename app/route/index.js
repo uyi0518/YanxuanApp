@@ -6,6 +6,7 @@ import CartView from '../pages/cart/index'
 import CategoryView from '../pages/category/index'
 import PersonalView from '../pages/personal/index'
 import RecommendView from '../pages/recommend/index'
+import LoginView from '../pages/login/index'
 import Gogogo from '../pages/personal/gogogo'
 
 
@@ -52,12 +53,17 @@ const TabContainer = TabNavigator({
 })
 
 const RootNavigator = StackNavigator({
+ 
   first: {
     screen: TabContainer
   },
   gogogo:{
     screen:Gogogo
+  },
+  login:{
+    screen:LoginView 
   }
+  
 }, {
   transitionConfig: () => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})
 })

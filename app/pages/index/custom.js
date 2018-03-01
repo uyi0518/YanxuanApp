@@ -9,7 +9,7 @@ import {
   Dimensions,
   ViewPropTypes,
   TouchableOpacity,
-   PixelRatio
+  PixelRatio
 } from 'react-native';
 import PropTypes from 'prop-types'
 import createReactClass from 'create-react-class'
@@ -198,7 +198,7 @@ const MyScrollableTabBar = createReactClass({
       accessibilityTraits='button'
       onPress={() => onPressHandler(page)}
       onLayout={onLayoutHandler}>
-      <View style={[styles.item, this.props.tabStyle,{borderColor:textColor}]}>
+      <View style={[styles.item,{borderColor:textColor}]}>
         <Text
           style={[
           {
@@ -274,7 +274,7 @@ const MyScrollableTabBar = createReactClass({
 
     const specialView = (
       <View style={styles.special}>
-        <Text>全部频道</Text>
+        <Text style={{fontSize:16,fontWeight:'bold',color:'#000'}}>全部频道</Text>
       </View>
 
     )
@@ -441,10 +441,8 @@ const styles = StyleSheet.create({
     height: 30,
     alignItems: 'center',
     justifyContent: 'center',
-    borderTopWidth:1,
-    borderBottomWidth:0.5,
-    borderLeftWidth:0.5,
-    borderRightWidth:1,
+    borderWidth: 2/PixelRatio.get(),
+   
     borderColor: '#000',
     marginBottom:10,
     marginLeft:10,

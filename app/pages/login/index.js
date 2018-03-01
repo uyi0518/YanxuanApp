@@ -10,15 +10,23 @@ import {
     TouchableOpacity,
     TextInput
 } from 'react-native';
+import {inject, observer} from 'mobx-react'
 
-class LoginView extends React.PureComponent {
+@inject('rootstore')
+@observer
+class LoginView extends React.Component {
     constructor(props) {
         super(props);
-
+        this.state={show:true}
     }
-
+    _login = () => {
+        
+        this.props.rootstore.login()
+        
+        this.props.navigation.navigate('recommend')
+    }
     render() {
-        return <Modal animationType='slide' onRequestClose={()=>{}}>
+        return <Modal animationType='slide' onRequestClose={()=>{}} visible={!this.props.rootstore.islogin}>
             <View style={[styles.container]}>
             <View style={[styles.user]}>
                 <TextInput underlineColorAndroid="transparent" style={{padding:0}} autoFocus placeholder="邮箱账号/手机号" placeholderTextColor='#999999'></TextInput>
@@ -27,7 +35,7 @@ class LoginView extends React.PureComponent {
                 <TextInput underlineColorAndroid="transparent" style={{padding:0}}  placeholder="密码" placeholderTextColor='#999999' secureTextEntry></TextInput>
             </View>
 
-            <TouchableOpacity onPress={this.props._onpress} style={[styles.button]}>
+            <TouchableOpacity onPress={this._login} style={[styles.button]}>
                 <Text style={{color:'#fff',fontSize:18}}>登录</Text>
             </TouchableOpacity>
                 
