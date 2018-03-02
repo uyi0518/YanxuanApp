@@ -8,7 +8,7 @@ import PersonalView from '../pages/personal/index'
 import RecommendView from '../pages/recommend/index'
 import LoginView from '../pages/login/index'
 import Gogogo from '../pages/personal/gogogo'
-
+import splash from '../pages/splash'
 
 const TabContainer = TabNavigator({
   index: {
@@ -53,7 +53,9 @@ const TabContainer = TabNavigator({
 })
 
 const RootNavigator = StackNavigator({
- 
+  splash:{
+    screen:splash
+  },
   first: {
     screen: TabContainer
   },
@@ -62,7 +64,8 @@ const RootNavigator = StackNavigator({
   },
   login:{
     screen:LoginView 
-  }
+  },
+  
   
 }, {
   transitionConfig: () => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})

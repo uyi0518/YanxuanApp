@@ -3648,6 +3648,10 @@ react-native-snap-carousel@^3.6.0:
     prop-types "^15.6.0"
     react-addons-shallow-compare "15.6.2"
 
+react-native-splash-screen@^3.0.6:
+  version "3.0.6"
+  resolved "https://registry.npmjs.org/react-native-splash-screen/-/react-native-splash-screen-3.0.6.tgz#c0bbf2c8ae40a313c4c7044f55e569414ff68332"
+
 react-native-storage@^0.2.2:
   version "0.2.2"
   resolved "https://registry.npmjs.org/react-native-storage/-/react-native-storage-0.2.2.tgz#4449197f122b2da0650e3704e1f050260ed58d9f"
