@@ -23,7 +23,9 @@ class Splash extends React.Component {
   componentDidMount() {
  
     SplashScreen.hide();
-  
+    setTimeout(()=>{
+        this.props.navigation.navigate('index')
+    },1000)
   }
 
   componentWillUnmount() {
