@@ -19,6 +19,7 @@ class RecommendView extends React.Component {
         super(props);
 
     }
+   
 
     render() {
         const pics = [

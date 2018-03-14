@@ -81,7 +81,7 @@ class Search extends React.Component {
             overflow:"visible"
         },
         qrcode:{
-            width:36,
+            width:40,
             height:32,
             justifyContent: 'center',
             alignItems :'center',

@@ -7,11 +7,13 @@ import {
     TextInput,
     StyleSheet,
     Alert,
-    TouchableWithoutFeedback
+    TouchableWithoutFeedback,
+    Animated
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {inject, observer} from 'mobx-react'
+import LottieView from 'lottie-react-native';
 
 @inject('rootstore')
 
@@ -19,11 +21,12 @@ class Personal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            show: false
+            show: false,
+            progress: new Animated.Value(0),
         }
     }
 
-    static navigationOptions = ({navigation,screenProps}) =>({
+    static navigationOptions = ({navigation, screenProps}) => ({
         tabBarLabel: '个人',
         header: null,
         tabBarIcon: ({tintColor, focused}) => (<Ionicons
@@ -34,35 +37,52 @@ class Personal extends React.Component {
             style={{
             color: tintColor
         }}/>),
-        tabBarOnPress: ({previousScene,scene,jumpToIndex}) => {
-           
-            navigation.state.params._onpress(jumpToIndex,scene)
-            
-            
-       },
+        tabBarOnPress: ({previousScene, scene, jumpToIndex}) => {
+            console.log(navigation.state.params)
+            navigation
+                .state
+                .params
+                ._onpress(jumpToIndex, scene)
+
+        }
     })
-    componentDidUpdate(){
-        
-    }
+    componentDidUpdate() {}
     componentDidMount() {
         this
             .props
             .navigation
             .setParams({_onpress: this._onpress})
+
+            Animated.timing(this.state.progress, {
+                toValue: 0.5,
+                duration: 5000,
+              }).start();
+            
     }
-    
-    _onpress = (jumpToIndex,scene) => {
-        if(!this.props.rootstore.islogin){
-            this.props.navigation.navigate("login")
-        }else{
+
+    _onpress = (jumpToIndex, scene) => {
+        if (!this.props.rootstore.islogin) {
+            this
+                .props
+                .navigation
+                .navigate("login")
+        } else {
             jumpToIndex(scene.index)
         }
-       
+
     }
-    
+
     render() {
         return <View style={[styles.container]}>
-            
+            <LottieView
+                style={{height:100,backgroundColor:"#000"}}
+                ref={animation => {
+                this.animation = animation;
+            }}
+            progress={this.state.progress}
+                source={require('../../animation/someloading.json')}/>
+               
+
         </View>
     }
 }
@@ -70,8 +90,9 @@ class Personal extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center'
+        // alignItems: 'center',
+        // justifyContent: 'center',
+        backgroundColor:"rgb(46, 204, 113)"
     }
 });
 

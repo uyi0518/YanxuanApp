@@ -23,7 +23,7 @@ class LoginView extends React.Component {
         
         this.props.rootstore.login()
         
-        this.props.navigation.navigate('recommend')
+        this.props.navigation.goBack()
     }
     render() {
         return <Modal animationType='slide' onRequestClose={()=>{}} visible={!this.props.rootstore.islogin}>

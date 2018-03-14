@@ -23,7 +23,9 @@ class Index extends React.Component {
         }}/>),
         header: null
     }
-    
+    componentDidMount(){
+        Alert.alert("gogogoindex")
+    }
   
     render() {
         return <View style={[styles.container]}>

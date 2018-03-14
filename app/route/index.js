@@ -9,6 +9,8 @@ import RecommendView from '../pages/recommend/index'
 import LoginView from '../pages/login/index'
 import Gogogo from '../pages/personal/gogogo'
 import splash from '../pages/splash'
+import Tototo from '../pages/personal/tototo'
+
 
 const TabContainer = TabNavigator({
   index: {
@@ -65,7 +67,9 @@ const RootNavigator = StackNavigator({
   login:{
     screen:LoginView 
   },
-  
+  tototo:{
+    screen:Tototo
+  },
   
 }, {
   transitionConfig: () => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})

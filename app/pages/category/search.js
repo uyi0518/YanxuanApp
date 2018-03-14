@@ -45,7 +45,7 @@ class Search extends React.Component {
             </TouchableOpacity>
        )
         const Smodal=(
-            <Modal  onRequestClose={() => {}} animationType='slide' visible={isfocused}>
+            <Modal  onRequestClose={() => {}} animationType='fade' visible={isfocused}>
                 <View style={[styles.container]}>
                 <SearchInput
                     style={{

@@ -16,7 +16,7 @@ class Cart extends React.Component {
         
     }
       static navigationOptions = {
-        tabBarLabel: '购物车1',
+        tabBarLabel: '购物车',
         tabBarIcon: ({tintColor, focused}) => (<Ionicons
             name={focused
             ? 'ios-cart'

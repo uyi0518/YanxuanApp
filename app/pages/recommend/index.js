@@ -27,6 +27,8 @@ class Recommend extends React.Component {
             fontWeight: 'normal',
             fontSize: 20
         },
+       
+        headerLeft:null,
         tabBarLabel: '识物',
         tabBarIcon: ({tintColor, focused}) => (<Ionicons
             name={focused

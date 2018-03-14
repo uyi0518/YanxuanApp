@@ -5,7 +5,7 @@ import {
     Button,
     Platform,
     TextInput,
-    StyleSheet,Alert
+    StyleSheet,Alert,TouchableOpacity,
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
@@ -20,7 +20,9 @@ class Cart extends React.Component {
 
     render(){
         return <View style={[styles.container]}>
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate("tototo")}>
             <Text>gogogo</Text>
+        </TouchableOpacity>
         </View>
     }
 }
