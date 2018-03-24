@@ -20,9 +20,10 @@
     "react-native-snap-carousel": "^3.6.0",
     "react-native-splash-screen": "^3.0.6",
     "react-native-storage": "^0.2.2",
+    "react-native-svg": "^6.2.2",
     "react-native-swiper": "^1.5.13",
     "react-native-vector-icons": "^4.5.0",
-    "react-navigation": "^1.0.0-beta.27",
+    "react-navigation": "^1.5.2",
     "teaset": "^0.5.5"
   },
   "devDependencies": {

@@ -85,7 +85,7 @@ class Search extends React.Component {
             height:32,
             justifyContent: 'center',
             alignItems :'center',
-           marginRight:10
+            marginRight:10
         },
         message:{
             width:30,

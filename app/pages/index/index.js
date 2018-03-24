@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {inject, observer} from 'mobx-react'
 import IndexHeader from './header'
 import Scrollable from  './scrollable'
+import SplashScreen from 'react-native-splash-screen';
 @inject('rootstore')
 
 class Index extends React.Component {
@@ -25,6 +26,7 @@ class Index extends React.Component {
     }
     componentDidMount(){
         Alert.alert("gogogoindex")
+        SplashScreen.hide();
     }
   
     render() {

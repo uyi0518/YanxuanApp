@@ -9,6 +9,7 @@ import {
     Alert
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import NavHeader from '../common/navHeader';
 
 class Cart extends React.Component {
     constructor(props) {
@@ -17,6 +18,7 @@ class Cart extends React.Component {
     }
       static navigationOptions = {
         tabBarLabel: '购物车',
+        header:null,
         tabBarIcon: ({tintColor, focused}) => (<Ionicons
             name={focused
             ? 'ios-cart'
@@ -29,6 +31,7 @@ class Cart extends React.Component {
    
     render(){
         return <View style={[styles.container]}>
+               <NavHeader headerTitle="人生何处不相逢" ></NavHeader>
             <Text>index</Text>
         </View>
     }
@@ -39,8 +42,7 @@ class Cart extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    
    
   }
 });

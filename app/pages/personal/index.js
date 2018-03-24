@@ -14,6 +14,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {inject, observer} from 'mobx-react'
 import LottieView from 'lottie-react-native';
+import MyText from '../../utils/MyText'
 
 @inject('rootstore')
 
@@ -38,7 +39,8 @@ class Personal extends React.Component {
             color: tintColor
         }}/>),
         tabBarOnPress: ({previousScene, scene, jumpToIndex}) => {
-            console.log(navigation.state.params)
+            console.log(navigation)
+            
             navigation
                 .state
                 .params
@@ -81,7 +83,7 @@ class Personal extends React.Component {
             }}
             progress={this.state.progress}
                 source={require('../../animation/someloading.json')}/>
-               
+               <MyText>1111</MyText>
 
         </View>
     }

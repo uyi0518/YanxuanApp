@@ -31,7 +31,8 @@ class Category extends React.Component {
         }}/>)
     }
     componentDidMount(){
-       
+        Alert.alert("gogogocategory")
+        
     }
     render(){
         return <View style={[styles.container]}>

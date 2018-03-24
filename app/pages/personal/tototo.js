@@ -20,7 +20,7 @@ class Cart extends React.Component {
 
     render(){
         return <View style={[styles.container]}>
-        <TouchableOpacity onPress={()=>this.props.navigation.navigate("gogogo")}>
+        <TouchableOpacity onPress={()=>this.props.navigation.pop()}>
             <Text>tototo</Text>
         </TouchableOpacity>
         </View>

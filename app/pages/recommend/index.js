@@ -25,10 +25,12 @@ class Recommend extends React.Component {
         headerTitleStyle: {
             alignSelf: 'center',
             fontWeight: 'normal',
-            fontSize: 20
+            fontSize: 20,
+            textAlign:'center'
         },
        
-        headerLeft:null,
+        headerLeft:(<View></View>),
+        headerRight:(<View></View>),
         tabBarLabel: '识物',
         tabBarIcon: ({tintColor, focused}) => (<Ionicons
             name={focused

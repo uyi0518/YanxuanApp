@@ -30,7 +30,7 @@ const TabContainer = TabNavigator({
   }
 
 }, {
-  lazy: true,
+  lazy: false,
   swipeEnabled: false,
   animationEnabled: (Platform.OS === 'ios'),
   tabBarPosition: 'bottom',
@@ -55,9 +55,9 @@ const TabContainer = TabNavigator({
 })
 
 const RootNavigator = StackNavigator({
-  splash:{
-    screen:splash
-  },
+  // splash:{
+  //   screen:splash
+  // },
   first: {
     screen: TabContainer
   },
