@@ -15,14 +15,14 @@ numbers=[0,1,2,3,4,5,6,7,8,9]
 class Cart extends React.Component {
     constructor(props) {
         super(props);
-        
+        this.state={time:false}
     }
     componentDidMount(){
-        Alert.alert("gogogo")
+        setTimeout(()=>this.setState({time:true}),0)
     }
      
     _renderItem = ({item,index}) => {
-        const right=(<View style={{flexWrap:'wrap',flexDirection:'row',height:100,width:70,justifyContent:'space-between'}}>
+        const right=(<View style={{flexWrap:'wrap',flexDirection:'row',height:100,width:70,justifyContent:'space-between'}} key={index}>
         <Text style={{width:20,height:20,borderWidth:1,borderColor:'#000',borderRadius:10,textAlign:'center'}}>全</Text>
         <Text style={{width:20,height:20,borderWidth:1,borderColor:'#000',borderRadius:10,textAlign:'center'}}>大</Text>
         <Text style={{width:20,height:20,borderWidth:1,borderColor:'#000',borderRadius:10,textAlign:'center'}}>小</Text>
@@ -57,7 +57,7 @@ const center=(<View style={{flexWrap:'wrap',flexDirection:'row',flex:1,justifyCo
         {/* <TouchableOpacity onPress={()=>this.props.navigation.navigate("tototo")}>
             <Text>gogogo</Text>
         </TouchableOpacity> */}
-     
+      { this.state.time &&
          <FlatList
                     data={numbers}
                     renderItem={this._renderItem}
@@ -68,7 +68,7 @@ const center=(<View style={{flexWrap:'wrap',flexDirection:'row',flex:1,justifyCo
                         )}
                     ref={(ref) => this._listRef = ref }
                     />
-        
+        }
     
         </View>
         </ScrollView>
