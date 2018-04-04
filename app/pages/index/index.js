@@ -25,7 +25,7 @@ class Index extends React.Component {
         header: null
     }
     componentDidMount(){
-        Alert.alert("gogogoindex")
+        // Alert.alert("gogogoindex")
         SplashScreen.hide();
     }
   

@@ -31,7 +31,7 @@ class Category extends React.Component {
         }}/>)
     }
     componentDidMount(){
-        Alert.alert("gogogocategory")
+        // Alert.alert("gogogocategory")
         
     }
     render(){
