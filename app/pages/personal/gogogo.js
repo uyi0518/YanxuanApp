@@ -12,6 +12,7 @@ import {
     Dimensions,
     FlatList,
     Animated,
+    PanResponder
     
 } from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
@@ -33,6 +34,7 @@ numbers = [
     8,
     9
 ]
+const CIRCLE_SIZE = 80;
 
 class Cart extends React.Component {
     constructor(props) {
@@ -44,10 +46,40 @@ class Cart extends React.Component {
             height:50
         }
     }
-    componentDidMount() {
-        // this.emailInput.shake()
-        console.log(this.view)
-        console.log(this.view111)
+    componentWillMount() {
+        this._panResponder = PanResponder.create({
+            // 要求成为响应者：
+            onStartShouldSetPanResponder: (evt, gestureState) => true,
+            onStartShouldSetPanResponderCapture: (evt, gestureState) => true,
+            onMoveShouldSetPanResponder: (evt, gestureState) => true,
+            onMoveShouldSetPanResponderCapture: (evt, gestureState) => true,
+      
+            onPanResponderGrant: (evt, gestureState) => {
+              // 开始手势操作。给用户一些视觉反馈，让他们知道发生了什么事情！
+                console.log(evt.nativeEvent)
+                console.log(gestureState)
+              // gestureState.{x,y} 现在会被设置为0
+            },
+            onPanResponderMove: (evt, gestureState) => {
+              // 最近一次的移动距离为gestureState.move{X,Y}
+              console.log(evt.nativeEvent)
+              console.log(gestureState.moveX)
+              // 从成为响应者开始时的累计手势移动距离为gestureState.d{x,y}
+            },
+            onPanResponderTerminationRequest: (evt, gestureState) => true,
+            onPanResponderRelease: (evt, gestureState) => {
+              // 用户放开了所有的触摸点，且此时视图已经成为了响应者。
+              // 一般来说这意味着一个手势操作已经成功完成。
+            },
+            onPanResponderTerminate: (evt, gestureState) => {
+              // 另一个组件已经成为了新的响应者，所以当前手势将被取消。
+            },
+            onShouldBlockNativeResponder: (evt, gestureState) => {
+              // 返回一个布尔值，决定当前组件是否应该阻止原生组件成为JS响应者
+              // 默认返回true。目前暂时只支持android。
+              return true;
+            }
+            })
     }
     handleViewRef = ref => this.view = ref;
     handleViewRef111 = ref => this.view111 = ref;
@@ -60,60 +92,13 @@ class Cart extends React.Component {
             
 }
 
+
     render() {
 
-        return <ScrollView style={{
-            flex: 1
-        }}>
-        
-            <View style={[styles.container]}>
+        return <View style={{flex:1}}>
+        <View style={[styles.container]}  {...this._panResponder.panHandlers}>
    
-            {/* <Input
-                 
-                  leftIcon={
-                    <Icon
-                      name='user'
-                      color='#ccc'
-                      size={25}
-                    />
-                  }
-                  shake={true}
-                  
-                  inputStyle={{marginLeft: 10, color: '#000',backgroundColor:'red',padding:0}}
-                  keyboardAppearance="light"
-                  placeholder="Email"
-                  autoFocus={false}
-                  autoCapitalize="none"
-                  autoCorrect={false}
-                  keyboardType="email-address"
-                  returnKeyType="next"
-                  ref={ input => this.emailInput = input }
-                  containerStyle={{borderColor:'#000',borderWidth:1,}}
-                  blurOnSubmit={false}
-                  placeholderTextColor="white"
-                  
-                  errorStyle={{textAlign: 'center', fontSize: 12}}
-                  errorMessage="Please enter a valid email address"
-                />
-                   
-                 
-                  <Button
-            title="Add to Cart"
-            titleStyle={{fontWeight: 'bold', fontSize: 18}}
-          
-            buttonStyle={{height: 40, width: 200, borderWidth: 0, borderColor: 'transparent', borderRadius: 20,overflow:'hidden',}}
-            containerStyle={{marginVertical: 10,backgroundColor:'transparent',overflow:'hidden',}}
-            icon={
-              <Icon
-                name='arrow-right'
-                size={15}
-                color='white'
-              />
-            }
-            iconRight
-            iconContainerStyle={{marginLeft: 5}}
-            
-          /> */}
+        
 
 
 
@@ -121,35 +106,48 @@ class Cart extends React.Component {
 
 
           {/* <Animatable.Text animation="zoomInUp">Zoom me up, Scotty</Animatable.Text> */}
-          <Animatable.Text animation="bounce" iterationCount="infinite" easing="linear" >Up and down you go</Animatable.Text>
-          <Animatable.Text animation="swing" iterationCount="infinite" easing="linear" direction="alternate">Up and down you go</Animatable.Text>
+        {/* <Animatable.Text animation="bounce" iterationCount="infinite" easing="linear" >Up and down you go</Animatable.Text>
+        <Animatable.Text animation="swing" iterationCount="infinite" easing="linear" direction="alternate">Up and down you go</Animatable.Text>
 
-           <TouchableOpacity onPress={this.bounce111} >
-          <Animatable.Text animation={this.state.isbonce ? "zoomOutLeft" : ''}  easing="linear" 
-          direction="alternate" style={{height:this.state.height,}}
-          ref={this.handleViewRef222}>Up and down you go</Animatable.Text>
-          </TouchableOpacity>
+        <TouchableOpacity onPress={this.bounce111} >
+        <Animatable.Text animation={this.state.isbonce ? "zoomOutLeft" : ''}  easing="linear" 
+        direction="alternate" style={{height:this.state.height,}}
+        ref={this.handleViewRef222}>Up and down you go</Animatable.Text>
+        </TouchableOpacity>
 
 
-          <TouchableOpacity onPress={this.bounce}>
-                    <Animatable.View ref={this.handleViewRef} >
-                    <Text>Bounce me!</Text>
-                    </Animatable.View>
-          </TouchableOpacity>
+        <TouchableOpacity onPress={this.bounce}>
+                <Animatable.View ref={this.handleViewRef} >
+                <Text>Bounce me!</Text>
+                </Animatable.View>
+        </TouchableOpacity>
 
-          <Animated.View ref={this.handleViewRef111}></Animated.View>
+        <Animated.View ref={this.handleViewRef111}></Animated.View> */}
+
+
+
+
+
+
+
+
+
             </View>
-
-        </ScrollView>
+            </View>
+        
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        //  flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 30,
+        width:300,
+        height:500,
+        backgroundColor:'red',
+        position:'absolute'
     }
 });
 
