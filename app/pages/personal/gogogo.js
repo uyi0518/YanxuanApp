@@ -96,7 +96,7 @@ class Cart extends React.Component {
     render() {
 
         return <View style={{flex:1}}>
-        <View style={[styles.container]}  {...this._panResponder.panHandlers}>
+        <View style={[styles.container]}  >
    
         
 
@@ -104,25 +104,10 @@ class Cart extends React.Component {
 
 
 
-
-          {/* <Animatable.Text animation="zoomInUp">Zoom me up, Scotty</Animatable.Text> */}
-        {/* <Animatable.Text animation="bounce" iterationCount="infinite" easing="linear" >Up and down you go</Animatable.Text>
-        <Animatable.Text animation="swing" iterationCount="infinite" easing="linear" direction="alternate">Up and down you go</Animatable.Text>
-
-        <TouchableOpacity onPress={this.bounce111} >
-        <Animatable.Text animation={this.state.isbonce ? "zoomOutLeft" : ''}  easing="linear" 
-        direction="alternate" style={{height:this.state.height,}}
-        ref={this.handleViewRef222}>Up and down you go</Animatable.Text>
+        <TouchableOpacity onPress={()=>this.props.navigation.navigate('tototo')}>
+            <Text>3333333</Text>
         </TouchableOpacity>
-
-
-        <TouchableOpacity onPress={this.bounce}>
-                <Animatable.View ref={this.handleViewRef} >
-                <Text>Bounce me!</Text>
-                </Animatable.View>
-        </TouchableOpacity>
-
-        <Animated.View ref={this.handleViewRef111}></Animated.View> */}
+      
 
 
 

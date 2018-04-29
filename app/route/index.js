@@ -1,6 +1,7 @@
 import {Platform} from 'react-native';
 import {StackNavigator, TabNavigator} from 'react-navigation';
 import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
+import codePush from "react-native-code-push";
 import IndexView from '../pages/index/index'
 import CartView from '../pages/cart/index'
 import CategoryView from '../pages/category/index'
@@ -75,4 +76,4 @@ const RootNavigator = StackNavigator({
   transitionConfig: () => ({screenInterpolator: CardStackStyleInterpolator.forHorizontal})
 })
 
-export default RootNavigator
+export default codePush(RootNavigator)

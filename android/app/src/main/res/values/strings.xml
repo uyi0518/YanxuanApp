@@ -1,3 +1,4 @@
 <resources>
+    <string moduleConfig="true" name="reactNativeCodePush_androidDeploymentKey">FVJ0j6J78cSVfu7KPDgBFE3jPaLraaa92ec1-937e-44d6-ae58-7589524b6660</string>
     <string name="app_name">你的专属app</string>
 </resources>
